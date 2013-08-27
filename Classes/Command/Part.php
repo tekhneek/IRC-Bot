@@ -33,7 +33,7 @@ class Part extends \Library\IRC\Command\Base {
      * IRC-Syntax: JOIN [#channel]
      */
     public function command() {
-        $this->connection->sendData('PART '.$this->arguments[0]);
+				$this->say("Nice try, douche.");
     }
 }
 ?>

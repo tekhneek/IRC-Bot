@@ -17,14 +17,14 @@ class Say extends \Library\IRC\Command\Base {
      *
      * @var string
      */
-    protected $help = '!say [#channel|username] whatever you want to say';
+    protected $help = '!say [words and thangs] whatever you want to say';
 
     /**
      * The number of arguments the command needs.
      *
      * @var integer
      */
-    protected $numberOfArguments = -1;
+    protected $numberOfArguments = 1;
 
     /**
      * Sends the arguments to the channel, like say from a user.
@@ -32,7 +32,9 @@ class Say extends \Library\IRC\Command\Base {
      * IRC-Syntax: PRIVMSG [#channel]or[user] : [message]
      */
     public function command() {
-        $this->say(implode( ' ', array_slice( $this->arguments, 1 ) ));
+			if (isset($this->arguments[0]) AND ! empty($this->arguments[0])) {
+	    	$this->say($this->arguments[0]);
+			}
     }
 }
 ?>

@@ -38,7 +38,7 @@ class Weather extends \Library\IRC\Command\Base {
      *
      * @var string
      */
-    private $weatherUri = "http://query.yahooapis.com/v1/public/yql?q=%s&format=json";
+    private $weatherUri = "http://query.yahooapis.com/v1/public/yql?q=%s&format=json&u=f";
 
     /**
      * API for getting location from IP
@@ -114,9 +114,9 @@ class Weather extends \Library\IRC\Command\Base {
     }
 
     protected function getWeather($woeid) {
-        $yql = sprintf('select * from weather.forecast where woeid=%d and u="c"', $woeid);
-
-        $response = $this->fetch(sprintf($this->weatherUri, urlencode($yql)));
+        $yql = sprintf('select * from weather.forecast where woeid=%d and u="f"', $woeid);
+        
+				$response = $this->fetch(sprintf($this->weatherUri, urlencode($yql)));
         $jsonResponse = json_decode($response);
 
         if (!$jsonResponse) {
