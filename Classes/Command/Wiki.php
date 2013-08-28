@@ -28,7 +28,7 @@ class Wiki extends \Library\IRC\Command\Base {
 	protected $numberOfArguments = -1;
 
 	/**
-	 * Get random Imgur URL and return it.
+	 * Get Wikipedia URL and return it.
 	 */
 	public function command() {
 		if (isset($this->arguments[0]) AND !empty($this->arguments[0])) {
@@ -37,6 +37,12 @@ class Wiki extends \Library\IRC\Command\Base {
 		}
 	}
 
+	/**
+	 * Search Wikipedia
+	 *
+	 * @param  string $term
+	 * @return string
+	 */
 	private function searchWiki($term) {
 		$uri = $this->api_path .  urlencode(trim($term));
 		$response = json_decode($this->fetch($uri));
