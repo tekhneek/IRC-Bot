@@ -23,6 +23,7 @@ return array(
 				'Command\Imgur' 	=> array(),
 				'Command\Mathfact' 	=> array(),
 				'Command\Paste' 	=> array(),
+				'Command\Docs' 	=> array(),
         // 'Command\Part'    => array(),
         // 'Command\Timeout' => array(),
         // 'Command\Quit'    => array(),

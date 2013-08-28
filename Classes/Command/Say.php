@@ -24,7 +24,7 @@ class Say extends \Library\IRC\Command\Base {
      *
      * @var integer
      */
-    protected $numberOfArguments = 1;
+    protected $numberOfArguments = -1;
 
     /**
      * Sends the arguments to the channel, like say from a user.
@@ -33,7 +33,7 @@ class Say extends \Library\IRC\Command\Base {
      */
     public function command() {
 			if (isset($this->arguments[0]) AND ! empty($this->arguments[0])) {
-	    	$this->say($this->arguments[0]);
+	    	$this->say(implode(' ', $this->arguments));
 			}
     }
 }
