@@ -16,7 +16,15 @@ class Joins extends \Library\IRC\Listener\Base {
     public function execute($data) {
         $args = $this->getArguments($data);
 
-        $this->say($this->getUserNickName($args[0]) . ", welcome to channel " . $args[2] . ". Try following commands: " . $this->getCommandsName(), $args[2]);
+				$sayings = array(
+					'Welcome to COSTCO. I love you.',
+					'Sie sehen mich rollen, sie zu hassen!',
+					"I'm in a glass cage of emotion.",
+					"That rug really tied the room together.",
+					"Beer?"
+				);
+
+        $this->say($sayings[mt_rand(0, count($sayings))] . ' ' . $this->getCommandsName(), $args[2]);
     }
 
     private function getCommandsName() {
